@@ -28,6 +28,17 @@ import RestaurantsPage from './RestaurantsPage';
  */
 
 export default function App() {
+  console.log(window.location); // Location {href: "http://localhost:8080/about2", ancestorOrigins: DOMStringList, origin: "http://localhost:8080", protocol: "http:", host: "localhost:8080", …}
+  console.log(window.location.pathname); // /about
+
+  const {
+    location: { pathname },
+  } = window;
+
+  if (pathname === '/') {
+    return <p>Home</p>;
+  }
+
   return (
     <div>
       <RestaurantsPage />
