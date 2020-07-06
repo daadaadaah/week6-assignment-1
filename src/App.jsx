@@ -27,6 +27,19 @@ import RestaurantsPage from './RestaurantsPage';
  * - 존재하지 않는 URL로 접근했을 때, 404 Not Found 페이지가 보인다.
  */
 
+function HomePage() {
+  return <p>Home</p>;
+}
+
+function AboutPage() {
+  return <p>About...</p>;
+}
+
+function NotFoundPage() {
+  //  실제로는 HTTP 404 코드가 보여야 됨
+  return <p>404 Not Found</p>;
+}
+
 export default function App() {
   console.log(window.location); // Location {href: "http://localhost:8080/about2", ancestorOrigins: DOMStringList, origin: "http://localhost:8080", protocol: "http:", host: "localhost:8080", …}
   console.log(window.location.pathname); // /about
@@ -35,13 +48,22 @@ export default function App() {
     location: { pathname },
   } = window;
 
-  if (pathname === '/') {
-    return <p>Home</p>;
-  }
+  const MyComponent = {
+    '/': HomePage,
+    '/about': AboutPage,
+    '/restaurants': RestaurantsPage,
 
-  return (
-    <div>
-      <RestaurantsPage />
-    </div>
-  );
+  }[pathname] || NotFoundPage;
+
+  return <MyComponent />;
+
+  // if (pathname === '/') {
+  //   return <p>Home</p>;
+  // }
+
+  // return (
+  //   <div>
+  //     <RestaurantsPage />
+  //   </div>
+  // );
 }
