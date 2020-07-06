@@ -28,7 +28,19 @@ import RestaurantsPage from './RestaurantsPage';
  */
 
 function HomePage() {
-  return <p>Home</p>;
+  return (
+    <div>
+      <h1>Home</h1>
+      <ul>
+        <li>
+          <a href="/about">About</a>
+        </li>
+        <li>
+          <a href="/restaurants">Restaurants</a>
+        </li>
+      </ul>
+    </div>
+  );
 }
 
 function AboutPage() {
@@ -52,7 +64,6 @@ export default function App() {
     '/': HomePage,
     '/about': AboutPage,
     '/restaurants': RestaurantsPage,
-
   }[pathname] || NotFoundPage;
 
   return <MyComponent />;
