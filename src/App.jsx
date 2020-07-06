@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import RestaurantsPage from './RestaurantsPage';
@@ -31,28 +33,14 @@ import NotFoundPage from './NotFoundPage';
  */
 
 export default function App() {
-  console.log(window.location); // Location {href: "http://localhost:8080/about2", ancestorOrigins: DOMStringList, origin: "http://localhost:8080", protocol: "http:", host: "localhost:8080", …}
-  console.log(window.location.pathname); // /about
-
-  const {
-    location: { pathname },
-  } = window;
-
-  const MyComponent = {
-    '/': HomePage,
-    '/about': AboutPage,
-    '/restaurants': RestaurantsPage,
-  }[pathname] || NotFoundPage;
-
-  return <MyComponent />;
-
-  // if (pathname === '/') {
-  //   return <p>Home</p>;
-  // }
-
-  // return (
-  //   <div>
-  //     <RestaurantsPage />
-  //   </div>
-  // );
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/about" component={AboutPage} />
+        <Route path="/restaurants" component={RestaurantsPage} />
+        <Route component={NotFoundPage} />
+      </Switch>
+    </BrowserRouter>
+  );
 }
