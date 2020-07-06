@@ -8,16 +8,34 @@ import { useSelector } from 'react-redux';
 
 import App from './App';
 
-test('App', () => {
+describe('App', () => {
   useSelector.mockImplementation((selector) => selector({
     regions: [],
     categories: [],
     restaurants: [],
   }));
 
-  render(
-    <MemoryRouter>
-      <App />
-    </MemoryRouter>,
-  );
+  context('with path /', () => {
+    it('renders the home page', () => {
+      const { container } = render(
+        <MemoryRouter>
+          <App />
+        </MemoryRouter>,
+      );
+
+      expect(container).toHaveTextContent('Home');
+    });
+  });
+
+  context('with path /about', () => {
+    it('renders the home page', () => {
+      const { container } = render(
+        <MemoryRouter initialEntries={['/about']}>
+          <App />
+        </MemoryRouter>,
+      );
+
+      expect(container).toHaveTextContent('소개');
+    });
+  });
 });

@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function AboutPage() {
-  return <p>About...</p>;
+  return <p>소개</p>;
 }
