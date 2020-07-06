@@ -34,11 +34,14 @@ import NotFoundPage from './NotFoundPage';
 
 export default function App() {
   return (
-    <Switch>
-      <Route exact path="/" component={HomePage} />
-      <Route path="/about" component={AboutPage} />
-      <Route path="/restaurants" component={RestaurantsPage} />
-      <Route component={NotFoundPage} />
-    </Switch>
+    <div>
+      <header>여기는 헤더입니다</header>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/about" component={AboutPage} />
+        <Route path="/restaurants" component={RestaurantsPage} />
+        <Route component={NotFoundPage} />
+      </Switch>
+    </div>
   );
 }
