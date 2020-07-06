@@ -1,5 +1,6 @@
 import React from 'react';
 
+import HomePage from './HomePage';
 import RestaurantsPage from './RestaurantsPage';
 
 // 0. 지역, 분류 목록을 얻기
@@ -26,22 +27,6 @@ import RestaurantsPage from './RestaurantsPage';
  * 6. NotFoundPage
  * - 존재하지 않는 URL로 접근했을 때, 404 Not Found 페이지가 보인다.
  */
-
-function HomePage() {
-  return (
-    <div>
-      <h1>Home</h1>
-      <ul>
-        <li>
-          <a href="/about">About</a>
-        </li>
-        <li>
-          <a href="/restaurants">Restaurants</a>
-        </li>
-      </ul>
-    </div>
-  );
-}
 
 function AboutPage() {
   return <p>About...</p>;
